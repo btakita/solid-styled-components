@@ -1,6 +1,6 @@
 /* @jsxImportSource solid-js */
 import { createRoot, Component } from "solid-js";
-import { styled, ThemeProvider, setup } from "../src/index";
+import { createGlobalStyles, styled, ThemeProvider, setup } from "../src/index";
 
 describe("Simple Styled", () => {
   test("Creates component properly", () => {
@@ -136,6 +136,20 @@ describe("Simple Styled", () => {
         >
           Testera
         </Div>
+      );
+    });
+  });
+
+  test("createGlobalStyles", () => {
+    const Style = createGlobalStyles`
+      span.red {
+        color: red;
+      }
+    `;
+
+    createRoot(() => {
+      const v = (
+        <Style/>
       );
     });
   });
